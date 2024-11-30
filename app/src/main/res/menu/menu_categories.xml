@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_drinks"
+        android:icon="@drawable/ic_chef"
+        android:title="Drinks" />
+    <item
+        android:id="@+id/menu_salades"
+        android:icon="@drawable/ic_chef"
+        android:title="Salades" />
+    <item
+        android:id="@+id/menu_desserts"
+        android:icon="@drawable/ic_chef"
+        android:title="Desserts" />
+    <item
+        android:id="@+id/menu_snacks"
+        android:icon="@drawable/ic_chef"
+        android:title="Snacks" />
+    <item
+        android:id="@+id/menu_Appetizers"
+        android:icon="@drawable/ic_chef"
+        android:title="Appetizers" />
+    <item
+        android:id="@+id/menu_Main_Dishes"
+        android:icon="@drawable/ic_chef"
+        android:title="Main Dishes" />
+
+
+</menu>

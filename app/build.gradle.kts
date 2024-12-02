@@ -47,5 +47,7 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation("com.squareup.picasso:picasso:2.71828")
+    implementation("com.google.android.gms:play-services-maps:18.1.0") // Google Maps
+
 
 }

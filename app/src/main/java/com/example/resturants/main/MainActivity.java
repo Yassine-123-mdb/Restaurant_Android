@@ -1,6 +1,7 @@
 package com.example.resturants.main;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -45,6 +47,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        CardView orderHistoryButton = findViewById(R.id.order_history_button);
+        orderHistoryButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, OrderHistoryActivity.class);
+            startActivity(intent);
+        });
+
         // Configurer le DrawerLayout
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.navigation_view);
@@ -64,6 +72,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // Charger les recettes par défaut (par exemple : "Drinks")
         loadRecipes("Drinks");
+
+        // CardView to open map for a specific location
+        CardView margondaButton = findViewById(R.id.margonda_button);
+        margondaButton.setOnClickListener(v -> openMap(-6.368282, 106.827183, "Restaurant L'Oliver Nabeul"));
     }
 
     private void loadRecipes(String category) {
@@ -127,6 +139,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+
     // Gérer le clic sur une carte de recette
     private void onRecipeClick(Recipe recipe) {
         Intent intent = new Intent(this, OrderActivity.class);
@@ -135,5 +148,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         intent.putExtra("price", recipe.getPrix());
         Log.d("MainActivity", "Sending data - Image: " + recipe.getImage() + ", Name: " + recipe.getTitle() + ", Price: " + recipe.getPrix());
         startActivity(intent);
+    }
+
+    private void openMap(double latitude, double longitude, String label) {
+        Uri geoLocation = Uri.parse("geo:" + latitude + "," + longitude + "?q=" + Uri.encode(label));
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, geoLocation);
+        mapIntent.setPackage("com.google.android.apps.maps");
+        if (mapIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(mapIntent);
+        } else {
+            Toast.makeText(this, "Google Maps n'est pas installé.", Toast.LENGTH_SHORT).show();
+        }
     }
 }

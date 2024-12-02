@@ -14,6 +14,9 @@ public class Order {
         this.timestamp = timestamp;
         this.status = status;
     }
+    public Order() {
+        // Initialisation des variables si nécessaire
+    }
     // Getters et setters
 
     public List<OrderItem> getItems() {

@@ -10,6 +10,9 @@ public class OrderItem {
         this.quantity = quantity;
         this.price = price;
     }
+    public OrderItem(){
+
+    }
 
     public double getPrice() {
         return price;

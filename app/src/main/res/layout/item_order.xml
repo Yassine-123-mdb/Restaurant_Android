@@ -1,0 +1,64 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:backgroundTint="@color/white"
+    android:padding="12dp">
+
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:padding="8dp">  <!-- Espacement réduit -->
+
+<!-- Order Date -->
+<TextView
+    android:id="@+id/tvOrderDate"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Order Date"
+    android:textStyle="bold"
+    android:textSize="14sp"
+android:layout_marginBottom="4dp"
+android:textColor="@color/black" />
+
+<!-- Total Price -->
+<TextView
+    android:id="@+id/tvOrderTotalPrice"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Total Price: $XX.XX"
+    android:textSize="14sp"
+android:layout_marginBottom="4dp"
+android:textColor="@color/black" />
+
+<!-- Items -->
+<TextView
+    android:id="@+id/tvOrderItems"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Items: Burger, Fries"
+    android:textSize="14sp"
+    android:layout_marginBottom="4dp"
+    android:textColor="@color/black" />
+
+<!-- Divider -->
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="@color/gray"
+    android:layout_marginVertical="4dp" />  <!-- Réduction de l'espacement vertical -->
+
+<!-- Status (Optional) -->
+<TextView
+    android:id="@+id/tvOrderStatus"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Status: Reserved"
+    android:textSize="14sp"
+    android:textStyle="italic"
+    android:textColor="@color/green" />
+
+</LinearLayout>
+    </androidx.cardview.widget.CardView>
